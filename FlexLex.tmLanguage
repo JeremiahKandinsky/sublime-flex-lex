@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>l</string>
+	</array>
+	<key>name</key>
+	<string>Flex/Lex</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>^/\*\* BEGIN CPP_SOURCECODE \*\*/</string>
+			<key>comment</key>
+			<string>flex verbatim code</string>
+			<key>end</key>
+			<string>^/\*\* END CPP_SOURCECODE \*\*/</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.c++</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^/\*\* BEGIN C_SOURCECODE \*\*/</string>
+			<key>comment</key>
+			<string>flex verbatim code</string>
+			<key>end</key>
+			<string>^/\*\* END C_SOURCECODE \*\*/</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.c</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^%\{</string>
+			<key>comment</key>
+			<string>flex verbatim code</string>
+			<key>end</key>
+			<string>^%\}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.c++</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>comment</key>
+			<string>c style comments</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.flexlex</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>flex directive</string>
+			<key>match</key>
+			<string>^\%\s*[a-zA-Z][^\s]+</string>
+			<key>name</key>
+			<string>keyword.other.flexlex</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>^%%</string>
+			<key>comment</key>
+			<string>flex rules section</string>
+			<key>end</key>
+			<string>^%%</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.flexlex</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>constant.numeric.flexlex</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>flex rule pattern</string>
+					<key>match</key>
+					<string>^(\{([^\}]+)\}|\[[^\]]+?\]|[^\s]+)+\s*(.+)$</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.flexlex</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.flexlex</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>flex patterns</string>
+			<key>match</key>
+			<string>^([A-Z][^\s]+)\s+(.+)\s*$</string>
+			<key>name</key>
+			<string>keyword.other.flexlex</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.flexlex</string>
+	<key>uuid</key>
+	<string>3b745f3d-ae63-4d44-8779-eeb786911228</string>
+</dict>
+</plist>

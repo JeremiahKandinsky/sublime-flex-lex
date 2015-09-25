@@ -1,0 +1,29 @@
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Flex/Lex</string>
+    <key>scope</key>
+    <string>source.flexlex</string>
+    <key>settings</key>
+    <dict>
+        <key>shellVariables</key>
+        <array>
+            <dict>
+                <key>name</key>
+                <string>TM_COMMENT_START_2</string>
+                <key>value</key>
+                <string>/* </string>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>TM_COMMENT_END_2</string>
+                <key>value</key>
+                <string> */</string>
+            </dict>
+        </array>
+    </dict>
+    <key>uuid</key>
+    <string>F9BFFF1F-1999-4723-B094-52E8AFD234D1</string>
+</dict>
+</plist>

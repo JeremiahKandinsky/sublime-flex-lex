@@ -1,0 +1,56 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+#
+# GNU Flex/Lex syntax highlighting grammer for Sublime Text.
+#
+---
+name: Flex/Lex
+scopeName: source.flexlex
+fileTypes: [l]
+uuid: 3b745f3d-ae63-4d44-8779-eeb786911228
+
+patterns:
+- comment: flex verbatim code
+  begin: ^/\*\* BEGIN CPP_SOURCECODE \*\*/
+  end: ^/\*\* END CPP_SOURCECODE \*\*/
+  patterns:
+  - include: source.c++
+
+- comment: flex verbatim code
+  begin: ^/\*\* BEGIN C_SOURCECODE \*\*/
+  end: ^/\*\* END C_SOURCECODE \*\*/
+  patterns:
+  - include: source.c
+
+- comment: flex verbatim code
+  begin: ^%\{
+  end: ^%\}
+  patterns:
+  - include: source.c++
+
+- comment: c style comments
+  begin: /\*
+  end: \*/
+  name: comment.block.flexlex
+
+- comment: flex directive
+  name: keyword.other.flexlex
+  match: ^\%\s*[a-zA-Z][^\s]+
+
+- comment: flex rules section
+  begin: ^%%
+  end: ^%%
+  patterns:
+  - comment: flex rule pattern
+    match: ^(\{([^\}]+)\}|\[[^\]]+?\]|[^\s]+)+\s*(.+)$
+    captures:
+      '1': {name: keyword.other.flexlex}
+      '2': {name: constant.numeric.flexlex}
+      # '3': {include: source.c++} # this doesn't work unfortunately
+
+- comment: flex definitions section
+  name: keyword.other.flexlex
+  match: ^([A-Z][^\s]+)\s+(.+)\s*$
+  captures:
+    '1': {name: constant.numeric.flexlex}
+    '2': {name: keyword.other.flexlex}
+
